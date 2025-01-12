@@ -25,8 +25,8 @@ public class Robot extends TimedRobot {
 
     rightMotor1.setInverted(true);
     rightMotor2.setInverted(true);
-    leftMotor2.follow(leftMotor1)
-    rightMotor2.follow(rightMotor1)
+    leftMotor2.follow(leftMotor1);
+    rightMotor2.follow(rightMotor1);
   }
 
 
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     if(timer.get() < 5){
-      driveTrain.arcadeDrive(0.5 ,0.5);
+      driveTrain.arcadeDrive(0.5 ,0);
     }
     else{
       driveTrain.arcadeDrive(0,0);
@@ -63,6 +63,9 @@ public class Robot extends TimedRobot {
 
     if(joystick.getCrossButtonPressed()){
       rollermotor.set(0.5);
+    }
+    else{
+      rollermotor.set(0);
     }
     double speed = joystick.getRightY();
     double rotation = joystick.getRightX();
